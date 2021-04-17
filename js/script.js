@@ -45,5 +45,3 @@ class Burger {
         document.querySelector(calories).textContent =  this._getCalories();
     }
 }
-
-
