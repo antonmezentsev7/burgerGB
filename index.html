@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <fieldset>
+        <legend>Выберите размер бургера:</legend>
+        <div>
+            <input type="radio" id="bigSize" name="size" value="big" data-price="100" data-calories="40" checked>
+            <label for="bigSize">
+                Большой (100 рублей, 40 калорий)
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="smallSize" name="size" value="small" data-price="50" data-calories="20">
+            <label for="smallSize">
+                Маленький (50 рублей, 20 калорий)
+            </label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Выберите начинку для бургера:</legend>
+        <div>
+            <input type="radio" id="withCheese" name="add" value="cheese" data-price="10" data-calories="20" checked>
+            <label for="withCheese">
+                С сыром (+10 рублей, +20 калорий).
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="withSalad" name="add" value="salad" data-price="20" data-calories="5">
+            <label for="withSalad">
+                С салатом (+20 рублей, +5 калорий).
+            </label>
+        </div>
+        <div>
+            <input type="radio" id="withPotatoe" name="add" value="potatoe" data-price="15" data-calories="10">
+            <label for="withPotatoe">
+                С картофелем (+15 рублей, +10 калорий).
+            </label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Выберите дополнительный ингридиент (по желанию):</legend>
+        <div>
+            <input type="checkbox" id="withSpice" name="topping" value="spice" data-price="15" data-calories="0">
+            <label for="withSpice">
+                Посыпать приправой (+15 рублей, +0 калорий)
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" id="withMayonaise" name="topping" value="mayonaise" data-price="20" data-calories="5">
+            <label for="withMayonaise">
+                Полить майонезом (+20 рублей, +5 калорий).
+            </label>
+        </div>
+    </fieldset>
+
+    <button class="count">Рассчитать стоимость и калории</button>
+
+    <p id="price">Цена:</p>
+    <p id="calories">Калории:</p>
+
+    <script src="js/script.js"></script>
+    <script>
+        window.onload = () => {
+            document.querySelector(".count").addEventListener("click", () => {
+                let burger = new Burger("size", "add", "topping");
+                console.log(burger);
+                burger._displaySum("#price", "#calories");
+            })
+        }
+    </script>
+</body>
+
+</html>
+
+
